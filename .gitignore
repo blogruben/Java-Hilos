@@ -1,0 +1,13 @@
+# Ignore Gradle generados
+*gradlew.bat
+*/.gradle/*
+*/gradle/*
+*gradlew
+
+# Ignore compilados
+*/build/*
+*/bin/*
+*.class
+
+# Ignore vscode config
+*.vscode/*

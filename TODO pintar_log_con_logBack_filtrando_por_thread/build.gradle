@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+def clasePrincipal = 'org.ruben.java.logback.App' 
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    //La librería logback-classic tiene dos dependencias transitivas:
+    // ch.qos.logback:logback-core:1.1.7
+    // org.slf4j:slf4j-api:1.7.20
+    // slf4j es el facade para desacoplar el logback
+    implementation 'ch.qos.logback:logback-classic:1.1.7'
+}
+
+application {
+    //clase principal para "gradlew -q run"
+    mainClassName = "$clasePrincipal" 
+}
+
+jar {
+    //añadimos al manifest
+    manifest {
+        attributes "Main-Class": "$clasePrincipal"
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+task wrapVersion(type: Wrapper) {
+   gradleVersion = '5.6'
+}
