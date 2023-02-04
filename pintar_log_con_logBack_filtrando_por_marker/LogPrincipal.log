@@ -1,0 +1,4 @@
+20:44:33.937 [main] INFO  org.ruben.java.logback.App - inicio
+20:44:33.953 [main] INFO  org.ruben.java.logback.App - fin
+20:46:08.120 [main] INFO  org.ruben.java.logback.App - inicio
+20:46:08.129 [main] INFO  org.ruben.java.logback.App - fin

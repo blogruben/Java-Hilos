@@ -1,6 +1,3 @@
-<!-- 
-
- -->
 <configuration debug="false">
   <appender name="CONSOLA" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
@@ -11,15 +8,16 @@
   <appender name="LOG_PRINCIPAL" class="ch.qos.logback.core.FileAppender">
       <file>./LogPrincipal.log</file>
       <append>true</append>
-      <filter class="org.ruben.java.logback.FiltroLog" />
+      <filter class="org.ruben.java.logback.logsFiltros.FiltroLogPrincipal" />
       <encoder>
         <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
       </encoder>
   </appender>
 
-  <appender name="LOG_PROCESAMIENTO" class="ch.qos.logback.core.FileAppender">
-      <file>./LogProcesamiento.log</file>
+  <appender name="LOG_SECUNDARIO" class="ch.qos.logback.core.FileAppender">
+      <file>./LogSegundario.log</file>
       <append>true</append>
+      <filter class="org.ruben.java.logback.logsFiltros.FiltroLogSecundario" />
       <encoder>
         <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
       </encoder>
@@ -29,7 +27,7 @@
   <root level="debug">
     <appender-ref ref="CONSOLA" />
     <appender-ref ref="LOG_PRINCIPAL" />
-    <appender-ref ref="LOG_PROCESAMIENTO" />
+    <appender-ref ref="LOG_SECUNDARIO" />
   </root>
 
 </configuration>
