@@ -1,8 +1,9 @@
-package org.ruben.java.logBack.gestionarHilos;
+package org.ruben.java.logback.gestionarHilos;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.ruben.java.logBack.App;
+
+import org.ruben.java.logback.App;
 
 public class Hilos {
 

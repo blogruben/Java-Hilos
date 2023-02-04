@@ -1,0 +1,2 @@
+10:04:42.795 [Thread-0] INFO  org.ruben.java.logback.App - estoy en un hilo
+10:04:42.795 [Thread-1] INFO  org.ruben.java.logback.App - estoy en un hilo

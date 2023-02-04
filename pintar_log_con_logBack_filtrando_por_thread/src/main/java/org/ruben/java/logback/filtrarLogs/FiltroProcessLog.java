@@ -1,17 +1,15 @@
-package org.ruben.java.logBack.filtrarLogs;
+package org.ruben.java.logback.filtrarLogs;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
 
-public class FiltroLog extends Filter<ILoggingEvent> {
+public class FiltroProcessLog extends Filter<ILoggingEvent> {
 
   @Override
   public FilterReply decide(ILoggingEvent event) {    
-    
-    if (event.getMessage().contains("Ruben")) {
-      System.out.println(event.getThreadName());
-      return FilterReply.ACCEPT;
+    if (!event.getThreadName().equals("main")) {
+      return FilterReply.NEUTRAL;
     } else {
       return FilterReply.DENY;
     }

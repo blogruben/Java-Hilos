@@ -7,11 +7,10 @@
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
     </encoder>
   </appender>
-
   <appender name="LOG_PRINCIPAL" class="ch.qos.logback.core.FileAppender">
       <file>./LogPrincipal.log</file>
       <append>true</append>
-      <filter class="org.ruben.java.logback.FiltroLog" />
+      <filter class="org.ruben.java.logback.filtrarLogs.FiltroMainLog" />
       <encoder>
         <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
       </encoder>
@@ -20,6 +19,7 @@
   <appender name="LOG_PROCESAMIENTO" class="ch.qos.logback.core.FileAppender">
       <file>./LogProcesamiento.log</file>
       <append>true</append>
+      <filter class="org.ruben.java.logback.filtrarLogs.FiltroProcessLog" />
       <encoder>
         <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
       </encoder>
