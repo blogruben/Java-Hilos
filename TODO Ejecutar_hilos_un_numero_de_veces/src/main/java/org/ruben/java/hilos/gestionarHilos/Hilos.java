@@ -2,21 +2,11 @@ package org.ruben.java.hilos.gestionarHilos;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.ruben.java.hilos.App;
-import org.ruben.java.hilos.excepciones.MiExcepcion;
 
 public class Hilos {
 
-    public static void iniciarHilosApp(int numeroHilos)  {
-        try {
-            Hilos.crearHilos(numeroHilos);
-        } catch (InterruptedException e) {
-            throw new MiExcepcion("Error al iniciar los hilos de ejecucion para procesar los ficheros", e);
-        }
-    }
-
-    private static void crearHilos(int numeroHilos) throws InterruptedException  {
+    private static void crearHilos(int numeroHilos)  {
             App t = new App();
             List<Thread> hilos = new ArrayList<>();
             //creamos los hilos
@@ -31,7 +21,11 @@ public class Hilos {
             //Continuamos con la ejecucion principal
             //una vez que hagan terminado
             for (Thread th : hilos) {
-                th.join();
+                try {
+                    th.join();
+                } catch (InterruptedException e) {
+                    System.out.println("Error al iniciar los hilos de ejecucion para procesar los ficheros");
+                }
             }
 	}
 
