@@ -33,13 +33,21 @@ class AccesoFicheroPropiedades {
 
     }
 
-    private static ThreadLocal<AccesoFicheroPropiedades> _threadLoca;
+	private static volatile AccesoFicheroPropiedades instance;
+	private static Object mutex = new Object();
 
-    static AccesoFicheroPropiedades getInstance(String archivo)  {
-        //crear un singleton protegido contra multihilo
-        _threadLoca = ThreadLocal.withInitial(() -> new AccesoFicheroPropiedades(archivo));
-        return _threadLoca.get();
-    }
+
+	public static AccesoFicheroPropiedades getInstance(String archivo) {
+		AccesoFicheroPropiedades result = instance;
+		if (result == null) {
+			synchronized (mutex) {
+				result = instance;
+				if (result == null)
+					instance = result = new AccesoFicheroPropiedades(archivo);
+			}
+		}
+		return result;
+	}
 
 	String getValor( String sClave )
 	{
