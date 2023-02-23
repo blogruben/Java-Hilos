@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    // Define the main class for the application
+    mainClassName = 'org.ruben.java.hilos.App'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+task wrapVersion(type: Wrapper) {
+   gradleVersion = '5.6' 
+}
