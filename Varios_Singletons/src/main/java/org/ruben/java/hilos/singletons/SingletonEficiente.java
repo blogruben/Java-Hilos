@@ -1,6 +1,6 @@
 package org.ruben.java.hilos.singletons;
 
-public class SingletonEficiente extends Singleton {
+public class SingletonEficiente {
 
 	private static volatile SingletonEficiente instance;
 	private static Object mutex = new Object();

@@ -1,6 +1,6 @@
 package org.ruben.java.hilos.singletons;
 
-public class SingletonIneficiente extends Singleton {
+public class SingletonIneficiente {
     private static SingletonIneficiente singleton;
 
     public SingletonIneficiente() {
